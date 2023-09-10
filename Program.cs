@@ -13,3 +13,31 @@
     }
     return newArr;
 }
+
+void PrintResult(string[] strs)
+{
+    int count = 0;
+    for(int i = 0; i < strs.Length; i++)
+    {        
+        if(!string.IsNullOrEmpty(strs[i]))
+        {
+            if(count > 0)
+            {
+                Console.Write(",");
+            }
+
+            Console.Write(strs[i]);
+            count++;
+        }
+    }
+}
+
+string ReadeConsole(string message)
+{
+    Console.WriteLine(message);
+    return Console.ReadLine();
+}
+
+string[] arr = ReadeConsole("Введите элементы массива через запятую: ").Split(',');
+string[] newArr = FilterShortStrings(arr, 3);
+PrintResult(newArr);
